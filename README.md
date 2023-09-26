@@ -6,4 +6,5 @@ These;
 2.	Admin: Beside of normal user admins can add a new category or movie, can delete the comments and can update the specs.
 
 [Login Screen]
+
 ![resim](https://github.com/nctkrlms/MovieApp_MVC-N-Tier-Architecture/assets/75181243/e20ab820-032a-4fe7-8959-29dbacd89176)
