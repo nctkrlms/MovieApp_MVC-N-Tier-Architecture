@@ -1,0 +1,30 @@
+﻿@model EntityLayer.Concrete.User
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <div>
+        <h2>Login</h2>
+
+        @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                @Html.Label("Username")
+                @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Password")
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+        }
+    </div>
+</div>

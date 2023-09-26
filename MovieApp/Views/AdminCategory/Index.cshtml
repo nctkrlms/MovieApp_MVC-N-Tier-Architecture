@@ -1,0 +1,55 @@
+﻿@using EntityLayer.Concrete
+@model List<Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+
+}
+
+
+
+<!DOCTYPE html>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+
+<br />
+<br />
+<br />
+
+
+<div class="col-sm-7">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Category Name</th>
+                @if (Convert.ToInt32(Session["RoleId"]) == 1)
+                {
+                    <th>Update</th>
+                    <th>Delete</th>
+                    <th>Movies</th>
+}
+
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.CategoryId</td>
+                    <td>@item.CategoryName</td>
+                    @if (Convert.ToInt32(Session["RoleId"]) == 1)
+                    {
+                        <td><a href="/AdminCategory/EditCategory/@item.CategoryId" class="btn btn-primary">Update</a></td>
+                        <td><a href="/AdminCategory/DeleteCategory/@item.CategoryId" class="btn btn-danger">Delete</a></td>
+                        <td><a href="#" class="btn btn-secondary">Movies</a></td>
+}
+
+                </tr>
+            }
+
+        </thead>
+    </table>
+    @if (Convert.ToInt32(Session["RoleId"]) == 1) { <a href="/AdminCategory/AddCategory" class="btn btn-success">Add Category</a>}
+    
+</div>
+

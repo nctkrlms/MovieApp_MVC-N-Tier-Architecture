@@ -1,0 +1,55 @@
+﻿
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>NecFlix</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="~/Content/sidebar.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3">
+
+                <input type="checkbox" id="check">
+                <label for="check">
+                    <i class="fas fa-bars" id="btn"></i>
+                    <i class="fas fa-times" id="cancel"></i>
+                </label>
+                <div class="sidebar">
+                    <header>
+                        <img src="~/Content/logo.png" height="90px" width="90px" class="m-3" />
+                    </header>
+                    <ul>
+                        <li><a href="/AdminCategory"><i class="fas fa-qrcode"></i>Categories</a></li>
+                        <li><a href="/Movie"><i class="fas fa-stream"></i>Movies</a></li>
+                        <li><a href="/Favorite"><i class="fas fa-heart"></i>Favorites</a></li>
+                        <li><a href="#"><i class="fas fa-link"></i>Search</a></li>
+                        <li><a href="#"><i class="fas fa-question-circle"></i>I'm Lucky</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            
+
+                @RenderBody()
+            
+        </div>
+
+        </div>
+
+    
+
+
+</body>
+</html>

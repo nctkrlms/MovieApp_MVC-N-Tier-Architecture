@@ -1,0 +1,111 @@
+﻿@model EntityLayer.Concrete.Movie
+@{
+    ViewBag.Title = "MovieDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>eCommerce Product Detail</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link href="~/Content/movieDetail.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="card">
+            <div class="container-fliud">
+                <div class="wrapper row">
+                    <div class="preview col-md-6">
+
+                        <div class="preview-pic tab-content">
+                            <div class="tab-pane active" id="pic-1"><img src="@Model.Img" /></div>
+                        </div>
+
+
+                    </div>
+                    <div class="details col-md-6">
+                        <h3 class="product-title">@Model.MovieName</h3>
+                        <div class="rating">
+                            <div class="stars">
+                                @for (int i = 0; i < Model?.MovieRate; i++)
+                                {
+                                    <span class="fa fa-star checked"></span>
+                                }
+                                @for (int i = 0; i < 5 - Model?.MovieRate; i++)
+                                {
+                                    <span class="fa fa-star"></span>
+                                }
+
+
+                            </div>
+
+                        </div>
+                        <p class="product-description">@Model.Description</p>
+                        <h4 class="price">Category: <span>@Model.Category.CategoryName</span></h4>
+                        <p class="vote"><strong>Director: </strong> <strong>@Model.Director</strong></p>
+                        <h5 class="sizes">
+                            Trailer:
+                            <a href="@Model.Trailer">Watch Trailer</a>
+                        </h5>
+
+                        <iframe width="500" height="315" src="@Model.Trailer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+                        <div class="action">
+                            <a  href="/Favorite/AddFav/@Model.MovieId" class="like btn btn-default" type="button"><span class="fa fa-heart"></span></a>
+                        </div>
+                        <br />
+                        <h2>
+                            Comments:
+                        </h2>
+                        <br />
+                        @foreach (var item in Model.Comments)
+                        {
+                            <p class="vote"><strong>@item.User.Username : </strong> <strong>@item.Content</strong></p>
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*@foreach (var item in Model.Comments)
+            {
+            <div class="container mt-5">
+                <div class="d-flex justify-content-center row">
+                    <div class="col-md-8">
+                        <div class="d-flex flex-column comment-section">
+                            <div class="bg-white p-2">
+                                <div class="d-flex flex-row user-info">
+                                    <img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
+                                    <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">item</span><span class="date text-black-50">Shared publicly - Jan 2020</span></div>
+                                </div>
+                                <div class="mt-2">
+                                    <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                </div>
+                            </div>
+                            <div class="bg-light p-2">
+                                <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40"><textarea class="form-control ml-1 shadow-none textarea"></textarea></div>
+                                <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="button">Post comment</button><button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">Cancel</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            }*@
+    </div>
+</body>
+</html>

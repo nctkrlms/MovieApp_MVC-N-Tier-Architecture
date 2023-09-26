@@ -1,0 +1,53 @@
+﻿@using EntityLayer.Concrete
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/movie.css" rel="stylesheet" />
+<div class="col">
+    <h2>Movies</h2>
+    <div class="">
+        @foreach (var item in Model)
+        {
+            <div class="container" style="margin-top:50px;">
+
+                <div class="col-md-4 " style="float:left;">
+                    <div class="card-sl m-3">
+                        <div class="card-image">
+                            <img src="@item.Img" />
+                        </div>
+                        @*<form action="/Favorite/AddFav" method="post">
+
+
+                </form>*@
+                        <a class="card-action" href="/Favorite/AddFav/@item.MovieId"><i class="fa fa-heart"></i></a>
+                        <div class="card-heading">
+                            @item.MovieName
+                        </div>
+                        <div class="card-text">
+                            @item.Description
+                        </div>
+                        <div class="card-text">
+                            <p>@item.Category.CategoryName</p>
+                        </div>
+
+                        <a href="/Movie/MovieDetail/@item.MovieId" class="card-button"> Details</a>
+                    </div>
+                </div>
+                
+            </div>
+
+
+
+        }
+    </div>
+</div>
+<div class="row">
+    <div class="col-9"></div>
+    <div class="col">
+        @if (Convert.ToInt32(Session["RoleId"]) == 1)
+        {
+            <a href="/Movie/AddMovie" class="btn btn-success">Add Movie</a>}
+    </div>
+</div>
+

@@ -1,0 +1,39 @@
+﻿@model EntityLayer.Concrete.Category
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col">
+    <h2>AddCategory</h2>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+
+
+    <br />
+
+    <div class="col-sm-7">
+        @using (Html.BeginForm("AddCategory", "AdminCategory", FormMethod.Post))
+        {
+            <br /><br />
+            <div class="form-group">
+                @Html.Label("Category Name")
+                <br />
+                @Html.TextBoxFor(x => x.CategoryName)
+                <br />
+                @Html.ValidationMessageFor(x => x.CategoryName)
+            </div>
+            <br />
+            <button class="btn btn-success">Add Category</button>
+        }
+    </div>
+</div>
+
+
+@*<form class="form-group" method="post">
+        <br />
+
+        <input type="text" name="CategoryName" placeholder="Category Name" class="form-control" />
+        <br />
+        <button class="btn btn-success">Add Category</button>
+    </form>*@

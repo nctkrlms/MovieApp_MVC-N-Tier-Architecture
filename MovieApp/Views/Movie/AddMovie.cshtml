@@ -1,0 +1,52 @@
+﻿@model EntityLayer.Concrete.Movie
+@{
+    ViewBag.Title = "AddMovie";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col">
+    <h2>AddMovie</h2>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+
+
+    <br />
+    <div class="col-sm-7">
+        @using (Html.BeginForm("AddMovie", "Movie", FormMethod.Post))
+        {
+            <br /><br />
+            <div class="form-group">
+                @Html.Label("Movie Name")
+                <br />
+                @Html.TextBoxFor(x => x.MovieName)
+                <br />
+                @Html.Label("Description")
+                <br />
+                @Html.TextBoxFor(x => x.Description)
+                <br />
+                @Html.Label("Director")
+                <br />
+                @Html.TextBoxFor(x => x.Director)
+                <br />
+                @Html.Label("Movie Rate")
+                <br />
+                @Html.TextBoxFor(x => x.MovieRate)
+                <br />
+                @Html.Label("Image Source")
+                <br />
+                @Html.TextBoxFor(x => x.Img)
+                <br />
+                @Html.Label("Movie Trailer")
+                <br />
+                @Html.TextBoxFor(x => x.Trailer)
+                <br />
+                @Html.Label("Category")
+                <br />
+                @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.vlc, new { @class = "form-control" })
+                <br />
+            </div>
+            <br />
+            <button class="btn btn-success">Add Movie</button>
+        }
+    </div>
+</div>
