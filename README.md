@@ -7,4 +7,5 @@ These;
 
 [Login Screen]
 
-![resim](https://github.com/nctkrlms/MovieApp_MVC-N-Tier-Architecture/assets/75181243/e20ab820-032a-4fe7-8959-29dbacd89176)
+![resim](https://github.com/nctkrlms/MovieApp_MVC-N-Tier-Architecture/assets/75181243/2a8fd6ba-4591-4c06-b53f-be3d8eb592be)
+
